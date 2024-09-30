@@ -1,8 +1,7 @@
 package net.htlgkr.friedla22021.lamda_hausuebung;
 
-public class RationalCalculator extends AbstractCalculator {
-
-    public RationalCalculator(CalculationOperation add, CalculationOperation subtract, CalculationOperation multiply, CalculationOperation divide) {
+public class VectorCalculator extends AbstractCalculator {
+    public VectorCalculator(CalculationOperation add, CalculationOperation subtract, CalculationOperation multiply, CalculationOperation divide) {
         super(add, subtract, multiply, divide);
     }
 
