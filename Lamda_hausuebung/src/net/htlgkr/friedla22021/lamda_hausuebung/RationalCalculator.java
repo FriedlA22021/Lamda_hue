@@ -3,8 +3,40 @@ package net.htlgkr.friedla22021.lamda_hausuebung;
 public class RationalCalculator extends AbstractCalculator {
 
     public RationalCalculator(CalculationOperation add, CalculationOperation subtract, CalculationOperation multiply, CalculationOperation divide) {
-        super(add, subtract, multiply, divide);
-    }
+        super(
+
+                (x, y) -> {
+                    Number result = new Number();
+                    double zaehler = (x.getA() * y.getB()) + (x.getB() * y.getA());
+                    double nenner = x.getB() * y.getB();
+                    result.setA(zaehler);
+                    result.setB(nenner);
+                    return result;
+                },
+
+                (x, y) -> {
+                    Number result = new Number();
+                    double zaehler = (x.getA() * y.getB()) - (x.getB() * y.getA());
+                    double nenner = x.getB() * y.getB();
+                    result.setA(zaehler);
+                    result.setB(nenner);
+                    return result;
+                },
+
+                (x, y) -> {
+                    Number result = new Number();
+                    result.setA(x.getA() * y.getA());
+                    result.setB(x.getB() * y.getB());
+                    return result;
+                },
+
+                (x, y) -> {
+                    Number result = new Number();
+                    result.setA(x.getA() * y.getB());
+                    result.setB(x.getB() * y.getA());
+                    return result;
+                }
+        );   }
 
     @Override
     public Number add(Number a, Number b) {

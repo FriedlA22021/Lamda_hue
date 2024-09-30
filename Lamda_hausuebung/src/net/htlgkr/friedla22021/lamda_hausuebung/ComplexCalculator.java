@@ -1,7 +1,7 @@
 package net.htlgkr.friedla22021.lamda_hausuebung;
 
-public class VectorCalculator extends AbstractCalculator {
-    public VectorCalculator(CalculationOperation add, CalculationOperation subtract, CalculationOperation multiply, CalculationOperation divide) {
+public class ComplexCalculator extends AbstractCalculator {
+    public ComplexCalculator(CalculationOperation add, CalculationOperation subtract, CalculationOperation multiply, CalculationOperation divide) {
         super(
                 (x, y) -> {
                     Number result = new Number();
@@ -9,23 +9,26 @@ public class VectorCalculator extends AbstractCalculator {
                     result.setB(x.getB() + y.getB());
                     return result;
                 },
+
                 (x, y) -> {
                     Number result = new Number();
                     result.setA(x.getA() - y.getA());
                     result.setB(x.getB() - y.getB());
                     return result;
                 },
+
                 (x, y) -> {
                     Number result = new Number();
-                    result.setA(0);
-                    result.setB(x.getA() * y.getB() - x.getB() * y.getA());
+                    double realPart = x.getA() * y.getA() - x.getB() * y.getB();
+                    double imaginaryPart = x.getA() * y.getB() + x.getB() * y.getA();
+                    result.setA(realPart);
+                    result.setB(imaginaryPart);
                     return result;
                 },
+                // Division zweier komplexer Zahlen
+                //TODO
                 (x, y) -> {
-                    Number result = new Number();
-                    result.setA(x.getA() * y.getA() + x.getB() * y.getB());
-                    result.setB(0);
-                    return result;
+                    return x;
                 }
         );
     }
