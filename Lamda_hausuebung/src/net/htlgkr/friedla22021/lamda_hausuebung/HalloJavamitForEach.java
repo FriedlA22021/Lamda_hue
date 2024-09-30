@@ -11,11 +11,15 @@ public class HalloJavamitForEach {
         for (String arg : args) {
             forEachList.add(arg);
         }
+        for (String s : forEachList) {
+            System.out.println(s);
+        }
 
-//        for (String string : forEachList) {
-//            System.out.println(string);
-//        }
-        //forEachList.forEach((String line) -> System.out.println(line));
+        System.out.println("Ausgabe mit forEach Lamda: ");
+
+        forEachList.forEach(s -> System.out.println(s));
+
+        System.out.println("Ausgabe mit forEach(1) Lamda: ");
 
         forEachList.forEach(System.out::println);
     }
